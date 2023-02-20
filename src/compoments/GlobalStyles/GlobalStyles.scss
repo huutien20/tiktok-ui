@@ -34,10 +34,26 @@ body {
 button,
 input,
 [tabindex] {
+    font-family: ibm-plex-sans, sans-serif;
     outline: none;
     border: none;
 }
 
 a[href] {
     text-decoration: none;
+}
+
+//Custom tippy tooltip
+body {
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
 }
