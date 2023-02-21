@@ -10,13 +10,11 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudArrowUp,
     faUser,
     faCoins,
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -27,6 +25,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/compoments/AccountItem';
 import Menu from '~/compoments/Popper/Menu';
+import { InboxIcon, MessagesIcon } from '~/compoments/Icons';
+import Image from '~/compoments/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -132,28 +132,30 @@ function Header() {
                 </HeadlessTippy>
 
                 <div className={cx('actions')}>
+                    <Button outline leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Upload
+                    </Button>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudArrowUp} />
+                                    <MessagesIcon width="26px" height="26px" />
                                 </button>
                             </Tippy>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faPaperPlane} />
-                            </button>
+                            <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon width="32px" height="32px" />
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button outline leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                                Upload
-                            </Button>
                             <Button primary>Log in</Button>
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tiktok-obj/1663032433476609.jpeg?x-expires=1677056400&x-signature=RfDh1pT4sXr2cCiuHVnpaylz39g%3D"
                                 alt="Nguyen Van A"

@@ -103,21 +103,28 @@
     align-items: center;
 }
 
+.action-btn,
+.user-avatar {
+    width: 32px;
+    height: 32px;
+}
+
 .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     color: var(--text-color-light);
     font-size: 2.2rem;
     background-color: transparent;
-    padding: 4px 12px;
+    margin-left: 16px;
 }
 
 .user-avatar {
     cursor: pointer;
-    width: 32px;
-    height: 32px;
     object-fit: cover;
     border-radius: 50%;
-    margin-left: 12px;
+    margin-left: 20px;
 }
 
 .more-btn {
