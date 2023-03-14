@@ -4,6 +4,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
+import { searchService } from '~/apiServices';
 import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/compoments/Popper';
 import AccountItem from '~/compoments/AccountItem';
@@ -27,16 +28,16 @@ function Search() {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((res) => res.json())
-            .then((user) => {
-                setSearchResult(user.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const result = await searchService(debounce);
+            setSearchResult(result);
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounce]);
 
     const handleHideResult = () => {
