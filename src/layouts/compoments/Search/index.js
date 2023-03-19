@@ -4,7 +4,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import { searchService } from '~/apiServices';
+import { searchService } from '~/services';
 import { useDebounce } from '~/hooks';
 import { Wrapper as PopperWrapper } from '~/compoments/Popper';
 import AccountItem from '~/compoments/AccountItem';
