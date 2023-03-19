@@ -36,7 +36,6 @@ function Search() {
             setSearchResult(result);
             setLoading(false);
         };
-
         fetchApi();
     }, [debounce]);
 
