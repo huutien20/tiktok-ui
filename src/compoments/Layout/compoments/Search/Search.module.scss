@@ -47,6 +47,10 @@
     color: rgba(22, 24, 35, 0.5);
 }
 
+.search-body {
+    overflow-y: auto;
+}
+
 .clear,
 .loading {
     position: absolute;
